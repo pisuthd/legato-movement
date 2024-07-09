@@ -1,5 +1,7 @@
 # Legato Dynamic DEX (Movement)
 
+Details - https://dorahacks.io/buidl/14127
+
 ## Deployment
 
 
