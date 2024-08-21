@@ -11,7 +11,6 @@ module legato_amm_addr::amm_tests {
     use aptos_framework::object::{  Object };
     use aptos_framework::fungible_asset::{ Metadata };
 
-
     use legato_amm_addr::token_factory;
     use legato_amm_addr::amm::{Self};
 
