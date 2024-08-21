@@ -213,12 +213,16 @@ module legato_vault_addr::mock_validator {
         assert!( table::contains( &global.pools, validator_address), ERR_INVALID_POOL );
 
         let pool = table::borrow( &global.pools, validator_address);
-        assert!( table::contains(&pool.staking_table, user_address), ERR_INVALID_USER);
 
-        let pricipal_amount = *table::borrow(  &pool.staking_table, user_address );
-        let multiplier = fixed_point64::create_from_rational( (pool.total_amount_with_rewards as u128), (pool.total_amount as u128) );
+        if (table::contains(&pool.staking_table, user_address)) {
+            let pricipal_amount = *table::borrow(  &pool.staking_table, user_address );
+            let multiplier = fixed_point64::create_from_rational( (pool.total_amount_with_rewards as u128), (pool.total_amount as u128) );
 
-        ( fixed_point64::multiply_u128( (pricipal_amount as u128), multiplier  ) as u64 )
+            ( fixed_point64::multiply_u128( (pricipal_amount as u128), multiplier  ) as u64 )
+        } else {
+            0
+        }
+
     }
 
     // ======== Internal Functions =========
