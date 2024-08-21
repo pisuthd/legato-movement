@@ -1,4 +1,6 @@
-# Legato Dynamic DEX (Movement)
+# Legato Movement
+
+TBD
 
 Legato provides a dynamic weight AMM DEX that allows listing tokens with much less capital. Unlike traditional fixed-weight 50/50 AMM DEXs, which requires settlement equivalent to the amount of tokens we want to list. For example, listing 3% of the total supply worth $50K would require another $50K in stablecoin or native tokens to pair. Our system allows for a 90/10 pool setup, saving almost 10 times the capital when listing tokens.
 
