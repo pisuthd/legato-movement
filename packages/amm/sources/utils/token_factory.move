@@ -5,14 +5,14 @@
 // Only the owner of the token can perform mint and burn operaions
 
 
-module legato_addr::token_factory {
+module legato_amm_addr::token_factory {
 
     use aptos_framework::fungible_asset::{Self, MintRef, TransferRef, BurnRef, Metadata, FungibleStore};
     use aptos_framework::object::{Self, Object, ExtendRef};
 
     use std::vector;
 
-    use legato_addr::base_fungible_asset;
+    use legato_amm_addr::base_fungible_asset;
 
     use std::signer;
     use std::string::{String, utf8};
@@ -42,8 +42,7 @@ module legato_addr::token_factory {
     // Constructor
     fun init_module(sender: &signer) {
         
-        let constructor_ref = object::create_object(signer::address_of(sender));
-        // let extend_ref = object::generate_extend_ref(&constructor_ref);
+        let constructor_ref = object::create_object(signer::address_of(sender)); 
 
         move_to(sender, TokenFactory {
             token_count: 0,
@@ -63,7 +62,7 @@ module legato_addr::token_factory {
     ) acquires TokenFactory {
         assert!( decimals > 1 && decimals <= 8, ERR_INVALID_DECIMALS );
 
-        let token_factory = borrow_global_mut<TokenFactory>(@legato_addr);
+        let token_factory = borrow_global_mut<TokenFactory>(@legato_amm_addr);
         let constructor_ref = &object::create_sticky_object(signer::address_of(sender));
 
         base_fungible_asset::initialize(
@@ -103,13 +102,13 @@ module legato_addr::token_factory {
 
     #[view]
     public fun token_count(): u64 acquires TokenFactory {
-        let token_factory = borrow_global_mut<TokenFactory>(@legato_addr);
+        let token_factory = borrow_global_mut<TokenFactory>(@legato_amm_addr);
         token_factory.token_count
     }
 
     #[view]
     public fun token_metadata_from_id(id: u64): Object<Metadata> acquires TokenFactory  { 
-        let token_factory = borrow_global_mut<TokenFactory>(@legato_addr);
+        let token_factory = borrow_global_mut<TokenFactory>(@legato_amm_addr);
         assert!( token_factory.token_count > id , ERR_INVALID_ID);
         let token = vector::borrow( &token_factory.tokens, id );
         token.metadata
@@ -117,7 +116,7 @@ module legato_addr::token_factory {
 
     #[view]
     public fun all_token_metadata(): vector<Object<Metadata>> acquires TokenFactory {
-        let token_factory = borrow_global_mut<TokenFactory>(@legato_addr);
+        let token_factory = borrow_global_mut<TokenFactory>(@legato_amm_addr);
         let count = 0;
         let output = vector::empty();
         while (count < vector::length(&token_factory.tokens)) {
@@ -130,7 +129,7 @@ module legato_addr::token_factory {
 
     #[view]
     public fun token_metadata_from_address(owner: address): vector<Object<Metadata>> acquires TokenFactory {
-        let token_factory = borrow_global_mut<TokenFactory>(@legato_addr);
+        let token_factory = borrow_global_mut<TokenFactory>(@legato_amm_addr);
         let count = 0;
         let output = vector::empty();
         while (count < vector::length(&token_factory.tokens)) {
@@ -144,7 +143,7 @@ module legato_addr::token_factory {
     }
 
     fun is_owner(sender: &signer, id: u64): bool acquires TokenFactory {
-        let token_factory = borrow_global_mut<TokenFactory>(@legato_addr);
+        let token_factory = borrow_global_mut<TokenFactory>(@legato_amm_addr);
         let token = vector::borrow( &token_factory.tokens, id );
         if (token.owner == signer::address_of(sender)) {
             true

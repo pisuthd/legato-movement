@@ -1,15 +1,15 @@
 // Test Token Factory Module
 
 #[test_only]
-module legato_addr::token_factory_tests {
+module legato_amm_addr::token_factory_tests {
 
-    use legato_addr::token_factory;
+    use legato_amm_addr::token_factory;
 
     use aptos_framework::primary_fungible_store;
     use std::signer;
     use std::string::utf8;
 
-    #[test(deployer = @legato_addr, creator = @0xface, alice = @1234)]
+    #[test(deployer = @legato_amm_addr, creator = @0xface, alice = @1234)]
     fun test_basic_flow(deployer: &signer, creator: &signer, alice: &signer) {
 
         token_factory::init_module_for_testing(deployer);
