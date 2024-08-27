@@ -8,8 +8,10 @@
       "bootstrap": "npm install; lerna bootstrap;",
       "start": "run-p --print-label package:*",
       "build": "lerna run --parallel build",
+      "package:engine": "lerna run --scope engine --stream dev",
       "test-amm": "lerna run test --concurrency 1 --stream --scope amm",
-      "test-vault": "lerna run test --concurrency 1 --stream --scope vault"
+      "test-vault": "lerna run test --concurrency 1 --stream --scope vault",
+      "test-engine" : "lerna run test --concurrency 1 --stream --scope engine"
     },
     "devDependencies": {
       "lerna": "^6.6.2",
