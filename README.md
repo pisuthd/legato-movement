@@ -1,10 +1,15 @@
-# Legato Movement
+# Legato on Movement
 
-TBD
+Legato is a comprehensive DeFi solution on Move-based blockchains featuring liquid staking, a dynamic weight DEX, liquidity bootstrapping and options protocols, all of which utilize AI to optimize critical system constants in real-time using external public internet data through LLM RAG fine-tuning, creating a smarter, more resilient DeFi ecosystem for users.
 
-Legato provides a dynamic weight AMM DEX that allows listing tokens with much less capital. Unlike traditional fixed-weight 50/50 AMM DEXs, which requires settlement equivalent to the amount of tokens we want to list. For example, listing 3% of the total supply worth $50K would require another $50K in stablecoin or native tokens to pair. Our system allows for a 90/10 pool setup, saving almost 10 times the capital when listing tokens.
+The available services are outlined below:
 
-Since dynamic weight DEX requires complex math calculations , we have developed Legato Math, a math library that allows calculation of fractional exponents and nth roots in all fixed-point numbers on Move. It extends from Aptos's fixed-point math library and includes custom code that utilizes the Newton-Raphson method.
+- Liquid Staking Vaults - Allows staking of native tokens and receiving liquid-form assets on Move-based PoS chains. AI is used to select validators for staking by analyzing factors like credibility and trading volumes.
+- Dynamic Weight AMM - An AMM that allows customization of pool weights, ranging from 50/50, 80/20 to 90/10, benefiting projects that want to set up a new pool with much less initial capital paired with their tokens.
+
+Apart from the AI-driven liquid staking system, Legato provides a dynamic weight AMM DEX that enables token listings with significantly less capital. Unlike traditional fixed-weight 50/50 AMM DEXs, which requires settlement equivalent to the amount of tokens we want to list. 
+
+For example, listing 3% of the total supply worth $50K would require another $50K in stablecoin or native tokens to pair. Our system allows for a 90/10 pool setup, saving almost 10 times the capital when listing tokens.
 
 ## Deployment
 
