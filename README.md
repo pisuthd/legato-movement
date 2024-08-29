@@ -13,13 +13,13 @@ For example, listing 3% of the total supply worth $50K would require another $50
 
 ## Deployment
 
-The system is live on Movement M1 devnet and fully supporting Aptos's new token standard of fungible asset class. Mock tokens are available for evaluation and USDC can be minted and then used on the DEX to trade for other tokens in the system.
+The liquid staking system is live on Movement Suzuka devnet and supporting Aptos's new token standard of fungible asset class.
 
-### Movement M1 Devnet
+### Movement Suzuka Devnet
 
 Component Name | Address / ID
 --- | --- 
-Package |  0xa354aea25485832cae78f9fa6593094af9d0b9f17f2a62f68e42ac81c8784d9d
+Package |  0xab3922ccb1794928abed8f5a5e8d9dac72fed24f88077e46593bed47dcdb7775
 
 ## How to Test
 
