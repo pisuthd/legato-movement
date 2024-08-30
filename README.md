@@ -103,9 +103,11 @@ lvMOVE | 0x5a9e78e28a018408b72887ac7c2877d38a72d0ea92b3924f1116bc6a4e8be087
 
 Make sure you have Aptos and/or Movement CLI installed on your machine. 
 
-After that, you can run the following commands to perform end-to-end tests.
+After that, you can run the following commands to perform end-to-end tests on each service.
 
 ```
 npm install
-npm run test
+npm run test-amm
+npm run test-vault
+npm run test-engine
 ```
